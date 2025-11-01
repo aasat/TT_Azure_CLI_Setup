@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  name: default
+  name: Self_Hosted
 
 steps:
 - script: echo Hello, world!
@@ -18,13 +18,3 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
-- task: BMCTTAutoRun@1
-  inputs:
-    HCIConnection: 'cw01.bmc.com:16196'
-    UserID: 'PINAWM1'
-    Password: '$(pass)'
-    TestLocationPath: 'C:\Users\amohapat\Testing\CLITestInAzureExt\UnitTest\Scenarios\CWKTCOBX_Scenario.context'
-    CLIInstallationPath: 'C:\Topaz\WorkbenchCLI\25.1.01.157'
-    Configuration: 'LocalTTTConf'
-    LocalTTTConfiguration: 'C:\AzureTestCase\TotalTestConfiguration'
