@@ -18,3 +18,14 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: BMCTTAutoRun@1
+  displayName: 'Run BMC Total Test Scenario'
+  inputs:    
+    CLIInstallationPath: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103'
+    HCIConnection: cw01.bmc.com:16196
+    UserID: 'PINAKA0'
+    Password: 'Freep0rt@bmc9'
+    PassTicket: 'Passticket'
+    TestLocationPath: 'C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Scenarios\CWK8000_Scenario.testscenario'
+    Configuration: 'LocalTTTConf'
+    LocalTTTConfiguration: 'C:\runtime\TotalTest-2503\TotalTestConfiguration'
