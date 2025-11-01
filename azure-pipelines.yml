@@ -29,3 +29,6 @@ steps:
     TestLocationPath: 'C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Scenarios\CWK8000_Scenario.testscenario'
     Configuration: 'LocalTTTConf'
     LocalTTTConfiguration: 'C:\runtime\TotalTest-2503\TotalTestConfiguration'
+- task: CmdLine@2
+  inputs:
+    script: 'TotalTestFTCLI.bat -f C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Scenarios\CWK8000_Scenario.testscenario -R -g TTTReport -G -v 6 -l CLI -log All -u pinaka0 -p Freep0rt@bmc9 -cfgdir C:\runtime\TotalTest-2503\TotalTestConfiguration -ccrepo PINAKA0.AJAY.CCTEST -ccsystem ajay12 -cctestid ajay12 -e d59115f4-0250-48f4-9c15-450bc236d456'
