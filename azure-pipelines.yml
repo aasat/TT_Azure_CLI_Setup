@@ -1,0 +1,30 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: default
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: BMCTTAutoRun@1
+  inputs:
+    HCIConnection: 'cw01.bmc.com:16196'
+    UserID: 'PINAWM1'
+    Password: '$(pass)'
+    TestLocationPath: 'C:\Users\amohapat\Testing\CLITestInAzureExt\UnitTest\Scenarios\CWKTCOBX_Scenario.context'
+    CLIInstallationPath: 'C:\Topaz\WorkbenchCLI\25.1.01.157'
+    Configuration: 'LocalTTTConf'
+    LocalTTTConfiguration: 'C:\AzureTestCase\TotalTestConfiguration'
