@@ -29,3 +29,10 @@ steps:
       -cfgdir "$(configPath)" ^
       -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
       -e "$(envId)"
+
+- task: CmdLine@2
+  displayName: 'Show CLI Log'
+  inputs:
+    script: |
+      echo "After CLI execution"
+      type "C:\runtime\TotalTest-2503\logs\bmc.log"
