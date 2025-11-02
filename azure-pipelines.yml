@@ -25,7 +25,7 @@ steps:
       "$(cliPath)\TotalTestFTCLI.bat" ^
       -f "$(testScenarioPath)" ^
       -R -g TTTReport -G -v 6 -l CLI -log "All" ^
-      -u "$(userId)" -p "Freep0rt@bmc9" ^
+      -u "$(userId)" -p "$(password)" ^
       -cfgdir "$(configPath)" ^
       -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
       -e "$(envId)"
