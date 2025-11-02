@@ -27,5 +27,5 @@ steps:
       -R -g TTTReport -G -v 6 -l CLI -log "All" ^
       -u "$(userId)" -p "%PASSWORD%" ^
       -cfgdir "$(configPath)" ^
-      -ccrepo "$(ccRepo)" -ccsystem "ajay121" -cctestid "ajay121" ^
-      -e "d59115f4-0250-48f4-9c15-450bc236d456"
+      -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
+      -e "$(envId)"
