@@ -37,14 +37,26 @@ steps:
       echo "After CLI execution"
       CD "C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Output"
       
-      echo CWK8000_Scenario.cli.suiteresult
-      type CWK8000_Scenario.cli.suiteresult
+      IF EXIST "CWK8000_Scenario.cli.suiteresult" (
+        type "CWK8000_Scenario.cli.suiteresult"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suiteresult not found.
+      )
 
-      echo CWK8000_Scenario.cli.suite.sonar.xml
-      type CWK8000_Scenario.cli.suite.sonar.xml
+      IF EXIST "CWK8000_Scenario.cli.suite.sonar.xml" (
+        type "CWK8000_Scenario.cli.suite.sonar.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.sonar.xml not found.
+      )
 
-      echo CWK8000_Scenario.cli.sonar.codecoverage.xml
-      type CWK8000_Scenario.cli.sonar.codecoverage.xml
+      IF EXIST "CWK8000_Scenario.cli.suite.junit.xml" (
+        type "CWK8000_Scenario.cli.suite.junit.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.junit.xml not found.
+      )
 
-      echo CWK8000_Scenario.cli.suite.junit.xml
-      type CWK8000_Scenario.cli.suite.junit.xml
+      IF EXIST "CWK8000_Scenario.cli.sonar.codecoverage.xml" (
+        type "CWK8000_Scenario.cli.sonar.codecoverage.xml"
+      ) ELSE (
+        echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
+      )
