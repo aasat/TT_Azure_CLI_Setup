@@ -35,4 +35,4 @@ steps:
   inputs:
     script: |
       echo "After CLI execution"
-      type "C:\runtime\TotalTest-2503\logs\bmc.log"
+      CD "C:\runtime\TotalTest-2503\CWK8000\Output\bmc.log"
