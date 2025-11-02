@@ -22,10 +22,10 @@ steps:
   displayName: 'Run TotalTest CLI'
   inputs:
     script: |
-      "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\TotalTestFTCLI.bat" ^
-      -f "C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Scenarios\CWK8000_Scenario.testscenario" ^
+      "$(cliPath)\TotalTestFTCLI.bat" ^
+      -f "$(testScenarioPath)" ^
       -R -g TTTReport -G -v 6 -l CLI -log "All" ^
       -u "pinaka0" -p "%PASSWORD%" ^
-      -cfgdir "C:\runtime\TotalTest-2503\TotalTestConfiguration" ^
+      -cfgdir "$(configPath)" ^
       -ccrepo "PINAKA0.AJAY.CCTEST" -ccsystem "ajay121" -cctestid "ajay121" ^
       -e "d59115f4-0250-48f4-9c15-450bc236d456"
