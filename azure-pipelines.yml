@@ -25,7 +25,7 @@ steps:
       "$(cliPath)\TotalTestFTCLI.bat" ^
       -f "$(testScenarioPath)" ^
       -R -g TTTReport -G -v 6 -l CLI -log "All" ^
-      -u "pinaka0" -p "%PASSWORD%" ^
+      -u "$(userId)" -p "%PASSWORD%" ^
       -cfgdir "$(configPath)" ^
-      -ccrepo "PINAKA0.AJAY.CCTEST" -ccsystem "ajay121" -cctestid "ajay121" ^
+      -ccrepo "$(ccRepo)" -ccsystem "ajay121" -cctestid "ajay121" ^
       -e "d59115f4-0250-48f4-9c15-450bc236d456"
