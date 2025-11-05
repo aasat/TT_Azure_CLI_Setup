@@ -60,3 +60,6 @@ steps:
       ) ELSE (
         echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
       )
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
