@@ -69,12 +69,12 @@ steps:
       -port 16197 
       -code 1047 
       -data /tmp/target/data/code_coverage 
-      -cc.repos SW##@.GGNWRK.CIMF.TTT.CCREPO 
-      -cc.system QA612Q -cc.test CITTT 
+      -cc.repos "$(ccRepo)" 
+      -cc.system "$(ccSystem)" 
       -cc.sources /tmp/target/QA/MF_Source,/tmp/target/MF_Copy/QA612Q 
       -targetFolder /tmp/target/MF_Test/QA612Q 
-      -id ZA0882 
-      -pass AHXH8X30
+      -id "$(userId)" 
+      -pass "$(password)"
        echo "After CLI execution"
       cat /tmp/target/data/total_test/.metadata/.log
       ls -lartiR /tmp/target/MF_Test/QA612Q
