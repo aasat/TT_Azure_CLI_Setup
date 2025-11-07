@@ -60,6 +60,23 @@ steps:
       ) ELSE (
         echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
       )
-- task: DockerInstaller@0
+- task: CmdLine@2
   inputs:
-    dockerVersion: '17.09.0-ce'
+    script: |
+      CodeCoverageCLI.sh 
+      -configuration /tmp/target/configuration 
+      -host 10.51.142.225 
+      -port 16197 
+      -code 1047 
+      -data /tmp/target/data/code_coverage 
+      -cc.repos SW##@.GGNWRK.CIMF.TTT.CCREPO 
+      -cc.system QA612Q -cc.test CITTT 
+      -cc.sources /tmp/target/QA/MF_Source,/tmp/target/MF_Copy/QA612Q 
+      -targetFolder /tmp/target/MF_Test/QA612Q 
+      -id ZA0882 
+      -pass AHXH8X30
+       echo "After CLI execution"
+      cat /tmp/target/data/total_test/.metadata/.log
+      ls -lartiR /tmp/target/MF_Test/QA612Q
+      cd /tmp/target/MF_Test/QA612Q/Coverage
+      cat CodeCoverage.xml
