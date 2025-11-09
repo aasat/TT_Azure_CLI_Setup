@@ -61,22 +61,27 @@ steps:
         echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
       )
 - task: CmdLine@2
+  displayName: 'Run CodeCoverage CLI'
   inputs:
     script: |
-      "$(cliPath)\CodeCoverageCLI.bat
-      -"$(configPath)"
-      -host "$(host)" 
-      -port "$(port)" 
-      -code 1047 
-      -data "$(targetFolder)"/target/data/code_coverage 
-      -cc.repos "$(ccRepo)" 
-      -cc.system "$(ccSystem)" 
-      -cc.sources  
-      -targetFolder "$(targetFolder)" 
-      -id "$(userId)" 
+      "$(cliPath)\CodeCoverageCLI.bat" ^
+      -"$(configPath)" ^
+      -host "$(host)" ^
+      -port "$(port)" ^
+      -code 1047 ^
+      -data "$(targetFolder)\target\data\code_coverage" ^
+      -cc.repos "$(ccRepo)" ^
+      -cc.system "$(ccSystem)" ^
+      -cc.sources ^
+      -targetFolder "$(targetFolder)" ^
+      -id "$(userId)" ^
       -pass "$(password)"
-       #echo "After CLI execution"
-      #cat /tmp/target/data/total_test/.metadata/.log
-      #ls -lartiR /tmp/target/MF_Test/QA612Q
-      #cd /tmp/target/MF_Test/QA612Q/Coverage
-      #cat CodeCoverage.xml
+
+- task: CmdLine@2
+  displayName: 'Show Code Coverage Output'
+  inputs:
+    script: |
+      echo "After CLI execution"
+      cd "$(targetFolder)\target\data\code_coverage"
+      dir
+      type CodeCoverage.xml
