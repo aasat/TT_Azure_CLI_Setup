@@ -63,8 +63,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      "$(cliPath)\CodeCoverageCLI.sh ^
-      -"$(configPath)" ^ 
+      "$(cliPath)\CodeCoverageCLI.bat
+      -"$(configPath)"
       -host "$(host)" 
       -port "$(port)" 
       -code 1047 
