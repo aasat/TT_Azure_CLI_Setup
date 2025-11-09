@@ -63,20 +63,20 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      CodeCoverageCLI.sh 
-      -configuration /tmp/target/configuration 
-      -host 10.51.142.225 
-      -port 16197 
+      "$(cliPath)\CodeCoverageCLI.sh ^
+      -"$(configPath)" ^ 
+      -host "$(host)" 
+      -port "$(port)" 
       -code 1047 
-      -data /tmp/target/data/code_coverage 
+      -data "$(targetFolder)"/target/data/code_coverage 
       -cc.repos "$(ccRepo)" 
       -cc.system "$(ccSystem)" 
-      -cc.sources /tmp/target/QA/MF_Source,/tmp/target/MF_Copy/QA612Q 
-      -targetFolder /tmp/target/MF_Test/QA612Q 
+      -cc.sources  
+      -targetFolder "$(targetFolder)" 
       -id "$(userId)" 
       -pass "$(password)"
-       echo "After CLI execution"
-      cat /tmp/target/data/total_test/.metadata/.log
-      ls -lartiR /tmp/target/MF_Test/QA612Q
-      cd /tmp/target/MF_Test/QA612Q/Coverage
-      cat CodeCoverage.xml
+       #echo "After CLI execution"
+      #cat /tmp/target/data/total_test/.metadata/.log
+      #ls -lartiR /tmp/target/MF_Test/QA612Q
+      #cd /tmp/target/MF_Test/QA612Q/Coverage
+      #cat CodeCoverage.xml
