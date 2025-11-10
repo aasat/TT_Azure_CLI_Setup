@@ -84,7 +84,7 @@ steps:
       echo "After CLI execution"
       cd "$(targetFolder)\Coverage"
       dir
-      type CodeCoverage.xml
+      #type CodeCoverage.xml
 - task: downloadertask@1
   inputs:
     cesUrl: 'https://vw-dtw-xat-01.adprod.bmc.com:48228/'
