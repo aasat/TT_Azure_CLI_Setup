@@ -72,7 +72,7 @@ steps:
       -data "$(targetFolder)\target\data\code_coverage" ^
       -cc.repos "$(ccRepo)" ^
       -cc.system "$(ccSystem)" ^
-      -cc.sources ^
+      -cc.sources "ENTQA.TTT.DEMO.JULY.JCL(LAUNCHCX)" ^
       -targetFolder "$(targetFolder)" ^
       -id "$(userId)" ^
       -pass "$(password)"
