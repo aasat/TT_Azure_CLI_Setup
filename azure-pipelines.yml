@@ -85,3 +85,8 @@ steps:
       cd "$(targetFolder)\target\data\code_coverage"
       dir
       type CodeCoverage.xml
+- task: downloadertask@1
+  inputs:
+    cesSecretToken: '$(cesToken)'
+    downloadSourceType: 'Container'
+    containerType: 'Assignment'
