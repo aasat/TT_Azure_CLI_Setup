@@ -65,7 +65,7 @@ steps:
   inputs:
     script: |
       "$(cliPath)\CodeCoverageCLI.bat" ^
-      -"$(configPath)" ^
+      #-"$(configPath)" ^
       -host "$(host)" ^
       -port "$(port)" ^
       -code 1047 ^
