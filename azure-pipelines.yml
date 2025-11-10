@@ -93,12 +93,12 @@ steps:
       "$(cliPath)\SCMDownloaderCLI.bat" ^
       -scm "ispwc" ^
       -ispwContainerName "QA00000292" ^
-      -ispwContainerType "0" ^
+      -ispwContainerType "Assignment" ^
       -ispwServerLevel "CONS" ^
       -ispwComponentType "COB" ^
       -targetFolder "/tmp/target" ^
       -ispwDownloadAll "true" ^
-      -host "10.51.142.225" ^
+      -host "CW01.BMC.COM" ^
       -port "16197" ^
       -code "1047" ^
       -timeout "0"
