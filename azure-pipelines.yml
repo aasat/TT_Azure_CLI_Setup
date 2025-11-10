@@ -69,6 +69,7 @@ steps:
       -port "$(port)" ^
       -code 1047 ^
       -data "$(targetFolder)\target\data\code_coverage" ^
+      -cc.test "Test" ^
       -cc.repos "$(ccRepo)" ^
       -cc.system "$(ccSystem)" ^
       -cc.sources "ENTQA.TTT.DEMO.JULY.JCL(LAUNCHCX)" ^
