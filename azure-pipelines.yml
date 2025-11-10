@@ -72,7 +72,7 @@ steps:
       -cc.test "Test" ^
       -cc.repos "$(ccRepo)" ^
       -cc.system "$(ccSystem)" ^
-      -cc.sources "ENTQA.TTT.DEMO.JULY.JCL(LAUNCHCX)" ^
+      -cc.sources "$(targetFolder)\source" ^
       -targetFolder "$(targetFolder)" ^
       -id "$(userId)" ^
       -pass "$(password)"
