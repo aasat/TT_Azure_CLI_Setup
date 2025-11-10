@@ -82,7 +82,7 @@ steps:
   inputs:
     script: |
       echo "After CLI execution"
-      cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\sources"
+      cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\sources", "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\copyBook""
       dir
       type CodeCoverage.xml
 - task: downloadertask@1
