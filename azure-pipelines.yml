@@ -87,6 +87,14 @@ steps:
       type CodeCoverage.xml
 - task: downloadertask@1
   inputs:
+    cesUrl: 'https://vw-dtw-xat-01.adprod.bmc.com:48227/'
+    connectionId: 'CW01.BMC.COM:16196#1047 - Latin 1 (Open Systems)'
+    authenticationType: 'TOKEN'
     cesSecretToken: '$(cesToken)'
+    sourceDownloadLocation: 'C:\agent\_work'
     downloadSourceType: 'Container'
     containerType: 'Assignment'
+    containerId: 'play0051598'
+    componentType: 'COB'
+    taskLevel: 'dev1'
+    downloadUnchangedSource: true
