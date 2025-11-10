@@ -96,7 +96,7 @@ steps:
       -ispwContainerType "Assignment" ^
       -ispwServerLevel "CONS" ^
       -ispwComponentType "COB" ^
-      -targetFolder "/tmp/target" ^
+      -targetFolder "$(targetFolder)" ^
       -ispwDownloadAll "true" ^
       -host "CW01.BMC.COM" ^
       -port "16197" ^
