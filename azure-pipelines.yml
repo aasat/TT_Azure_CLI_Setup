@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  name: Self_Hosted
+  name: Github Enterprise Server
 
 steps:
 - script: echo Hello, world!
