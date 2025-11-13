@@ -85,3 +85,13 @@ steps:
       cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage"
       dir
       type CodeCoverage.xml
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: |
+      - task: PublishCodeCoverageResults@2
+        displayName: 'Publish Code Coverage Results'
+        inputs:
+          codeCoverageTool: 'Cobertura'   # or JaCoCo if applicable
+          summaryFileLocation: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage\CodeCoverage.xml'
+    pathToSources: '''C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage'''
+    failIfCoverageEmpty: true
