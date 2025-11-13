@@ -85,20 +85,3 @@ steps:
       cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage"
       dir
       type CodeCoverage.xml
-
-- task: CmdLine@2
-  displayName: 'Run ISPW CLI'
-  inputs:
-    script: |
-      "$(cliPath)\SCMDownloaderCLI.bat" ^
-      -scm "ispwc" ^
-      -ispwContainerName "QA00000292" ^
-      -ispwContainerType "Assignment" ^
-      -ispwServerLevel "CONS" ^
-      -ispwComponentType "COB" ^
-      -targetFolder "$(targetFolder)" ^
-      -ispwDownloadAll "true" ^
-      -host "CW01.BMC.COM" ^
-      -port "16197" ^
-      -code "1047" ^
-      -timeout "0"
