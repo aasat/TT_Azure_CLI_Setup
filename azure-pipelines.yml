@@ -8,22 +8,16 @@ trigger:
 - main
 
 pool:
-  name: Github Enterprise Server   # Use your self-hosted agent pool
-
-variables:
-  cliPath: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103'
-  testScenarioPath: 'C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Scenarios\CWK8000_Scenario.testscenario'
-  configPath: 'C:\runtime\TotalTest-2503\TotalTestConfiguration'
-  targetFolder: 'C:\runtime\TotalTest-2503'
-  ccRepo: 'PINAKA0.AJAY.CCTEST'
-  ccSystem: 'ajay12'
-  ccTestId: 'ajay12'
-  envId: 'd59115f4-0250-48f4-9c15-450bc236d456'
-  userId: 'PINAKA0'
-  password: $(bmcPassword)   # Secret variable in pipeline UI
+  name: Github Enterprise Server
 
 steps:
-# ✅ Run TotalTest CLI
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
 - task: CmdLine@2
   displayName: 'Run TotalTest CLI'
   inputs:
@@ -36,20 +30,36 @@ steps:
       -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
       -e "$(envId)"
 
-# ✅ Show CLI Log
 - task: CmdLine@2
   displayName: 'Show CLI Log'
   inputs:
     script: |
       echo "After CLI execution"
-      cd "$(targetFolder)\CWK8000_CW01\Tests\Output"
-      dir
-      IF EXIST "CWK8000_Scenario.cli.suiteresult" type "CWK8000_Scenario.cli.suiteresult"
-      IF EXIST "CWK8000_Scenario.cli.suite.sonar.xml" type "CWK8000_Scenario.cli.suite.sonar.xml"
-      IF EXIST "CWK8000_Scenario.cli.suite.junit.xml" type "CWK8000_Scenario.cli.suite.junit.xml"
-      IF EXIST "CWK8000_Scenario.cli.sonar.codecoverage.xml" type "CWK8000_Scenario.cli.sonar.codecoverage.xml"
+      CD "C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Output"
+      
+      IF EXIST "CWK8000_Scenario.cli.suiteresult" (
+        type "CWK8000_Scenario.cli.suiteresult"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suiteresult not found.
+      )
 
-# ✅ Run Code Coverage CLI
+      IF EXIST "CWK8000_Scenario.cli.suite.sonar.xml" (
+        type "CWK8000_Scenario.cli.suite.sonar.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.sonar.xml not found.
+      )
+
+      IF EXIST "CWK8000_Scenario.cli.suite.junit.xml" (
+        type "CWK8000_Scenario.cli.suite.junit.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.junit.xml not found.
+      )
+
+      IF EXIST "CWK8000_Scenario.cli.sonar.codecoverage.xml" (
+        type "CWK8000_Scenario.cli.sonar.codecoverage.xml"
+      ) ELSE (
+        echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
+      )
 - task: CmdLine@2
   displayName: 'Run CodeCoverage CLI'
   inputs:
@@ -62,29 +72,16 @@ steps:
       -cc.test "Test" ^
       -cc.repos "$(ccRepo)" ^
       -cc.system "$(ccSystem)" ^
-      -cc.sources "$(cliPath)\sources","$(cliPath)\copyBook" ^
+      -cc.sources "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\sources" , "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\copyBook"^
       -targetFolder "$(targetFolder)" ^
       -id "$(userId)" ^
       -pass "$(password)"
 
-# ✅ Verify Coverage File Exists
 - task: CmdLine@2
-  displayName: 'Verify Coverage File'
+  displayName: 'Show Code Coverage Output'
   inputs:
     script: |
-      echo "Checking coverage file..."
-      dir "$(cliPath)\Coverage"
-      IF EXIST "$(cliPath)\Coverage\CodeCoverage.xml" (
-        echo "Coverage file found."
-      ) ELSE (
-        echo "Coverage file NOT found!"
-      )
-
-# ✅ Publish Code Coverage Results
-- task: PublishCodeCoverageResults@2
-  displayName: 'Publish Code Coverage Results'
-  inputs:
-    codeCoverageTool: 'Cobertura'   # Use Cobertura if supported
-    summaryFileLocation: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage\CodeCoverage.xml'
-    pathToSources: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage'
-    failIfCoverageEmpty: true
+      echo "After CLI execution"
+      cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage"
+      dir
+      type CodeCoverage.xml
