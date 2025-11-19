@@ -70,7 +70,7 @@ steps:
       -code "1047" ^
       -timeout "0" ^
       -host "CW01.BMC.COM" ^
-      -port "16196"
+      -port "16196" ^
       -targetFolder "$(targetFolder)" ^
       -data "$(ispwData)" ^
       -scm 'ispw' ^
