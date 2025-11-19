@@ -65,8 +65,8 @@ steps:
     script: |
       "$(cliPath)\SCMDownloaderCLI.bat" ^
       -configuration "$(configPath)" ^
-      -u "$(userId)" 
-      -p "$(password)" ^
+      -id "$(userId)" 
+      -pass "$(password)" ^
       -code "1047" ^
       -timeout "0" ^
       -targetFolder "$(targetFolder)" ^
