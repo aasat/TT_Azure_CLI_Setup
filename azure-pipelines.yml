@@ -28,8 +28,7 @@ steps:
       -u "$(userId)" -p "$(password)" ^
       -cfgdir "$(configPath)" ^
       -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
-      -cc.sources "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\sources" , "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\copyBook"^
-      -e "$(envId)"
+      -e "$(envId)" ^
       -ccreport summary^
       -genhtml coverage.info --output-directory coverage-report
 
