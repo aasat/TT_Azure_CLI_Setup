@@ -62,14 +62,11 @@ steps:
 - task: downloadertask@1
   displayName: 'Download ISPW'
   inputs:
-    cesUrl: 'https://vw-dtw-xat-01.adprod.bmc.com:48228/'
-    connectionId: 'CW01.BMC.COM:16196#1047 - Latin 1 (Open Systems)'
-    authenticationType: 'TOKEN'
-    cesSecretToken: '$(cesToken)'
-    sourceDownloadLocation: 'C:\agent\_work\ispw'
-    downloadSourceType: 'Container'
-    containerType: 'Assignment'
-    containerId: 'play0051598'
-    componentType: 'COB'
-    taskLevel: 'dev1'
-    downloadUnchangedSource: true
+    script: |
+      "$(cliPath)\TotalTestFTCLI.bat" ^
+      -f "$(testScenarioPath)" ^
+      -R -g TTTReport -G -v 6 -l CLI -log "All" ^
+      -u "$(userId)" -p "$(password)" ^
+      -cfgdir "$(configPath)" ^
+      -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
+      -e "$(envId)"
