@@ -63,37 +63,3 @@ steps:
       ) ELSE (
         echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
       )
-- task: CmdLine@2
-  displayName: 'Run CodeCoverage CLI'
-  inputs:
-    script: |
-      "$(cliPath)\CodeCoverageCLI.bat" ^
-      -host "$(host)" ^
-      -port "$(port)" ^
-      -code 1047 ^
-      -data "$(targetFolder)\target\data\code_coverage" ^
-      -cc.test "Test" ^
-      -cc.repos "$(ccRepo)" ^
-      -cc.system "$(ccSystem)" ^
-      -cc.sources "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\sources" , "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\copyBook"^
-      -targetFolder "$(targetFolder)" ^
-      -id "$(userId)" ^
-      -pass "$(password)"
-
-- task: CmdLine@2
-  displayName: 'Show Code Coverage Output'
-  inputs:
-    script: |
-      echo "After CLI execution"
-      cd "C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage"
-      dir
-      type CodeCoverage.xml
-    
- #Publish Code Coverage Results
-- task: PublishCodeCoverageResults@2
-  displayName: 'Publish Code Coverage Results'
-  inputs:
-    #codeCoverageTool: 'Cobertura'   # Use Cobertura if supported
-    summaryFileLocation: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage\CodeCoverage.xml'
-    pathToSources: 'C:\WorkBenchCLI_Workspace\topazworkbenchcli.24.1.01.103\Coverage'
-    failIfCoverageEmpty: true
