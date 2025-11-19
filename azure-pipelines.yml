@@ -59,14 +59,25 @@ steps:
       ) ELSE (
         echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
       )
-- task: downloadertask@1
+- task: CmdLine@2
   displayName: 'Download ISPW'
   inputs:
     script: |
-      "$(cliPath)\TotalTestFTCLI.bat" ^
-      -f "$(testScenarioPath)" ^
-      -R -g TTTReport -G -v 6 -l CLI -log "All" ^
-      -u "$(userId)" -p "$(password)" ^
-      -cfgdir "$(configPath)" ^
-      -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
-      -e "$(envId)"
+      "$(cliPath)\SCMDownloaderCLI.bat" ^
+      -configuration "$(configPath)" ^
+      -u "$(userId)" 
+      -p "$(password)" ^
+      -code "1047" ^
+      -timeout "0" ^
+      -targetFolder "$(targetFolder)" ^
+      -data "$(ispwData)" ^
+      -scm 'ispw' ^
+      -ispwServerStream 'CPWR' ^
+      -ispwServerApp 'KTTA' ^
+      -ispwServerLevel 'DEV1' ^ 
+      -ispwLevelOption '0' ^
+      -ispwFilterFiles true ^
+      -ispwFilterFolders false ^ 
+      -ispwComponentType 'COB' ^
+      -ispwDownloadAll true
+
