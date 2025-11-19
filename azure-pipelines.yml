@@ -38,8 +38,8 @@ steps:
       -ispwContainerName "KTTA000594" ^
       -ispwServerApp "KTTA" ^
       -ispwServerLevel "DEV1" ^ 
-      -ispwLevelOption "0" ^
-      -ispwFilterFiles true ^
-      -ispwFilterFolders false ^ 
-      -ispwComponentType 'COB' ^
+      -ispwLevelOption '0' ^
+      -ispwFilterFiles "true" ^
+      -ispwFilterFolders "false" ^ 
+      -ispwComponentType "COB" ^
       -ispwDownloadAll true
