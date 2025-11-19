@@ -65,8 +65,8 @@ steps:
     script: |
       "$(cliPath)\SCMDownloaderCLI.bat" ^
       -configuration "$(configPath)" ^
-      -id "$(userId)" 
-      -pass "$(password)" ^
+      -id "pinaka1" 
+      -pass "Freep0rt@bmc10" ^
       -code "1047" ^
       -timeout "0" ^
       -host "CW01.BMC.COM" ^
@@ -75,6 +75,7 @@ steps:
       -data "$(ispwData)" ^
       -scm 'ispw' ^
       -ispwServerStream "CPWR" ^
+      -ispwContainerName "KTTA000594"
       -ispwServerApp "KTTA" ^
       -ispwServerLevel "DEV1" ^ 
       -ispwLevelOption "0" ^
