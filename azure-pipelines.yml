@@ -72,12 +72,11 @@ steps:
       -targetFolder "$(targetFolder)" ^
       -data "$(ispwData)" ^
       -scm 'ispw' ^
-      -ispwServerStream 'CPWR' ^
-      -ispwServerApp 'KTTA' ^
-      -ispwServerLevel 'DEV1' ^ 
-      -ispwLevelOption '0' ^
+      -ispwServerStream "CPWR" ^
+      -ispwServerApp "KTTA" ^
+      -ispwServerLevel "DEV1" ^ 
+      -ispwLevelOption "0" ^
       -ispwFilterFiles true ^
       -ispwFilterFolders false ^ 
       -ispwComponentType 'COB' ^
       -ispwDownloadAll true
-
