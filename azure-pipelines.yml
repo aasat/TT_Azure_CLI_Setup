@@ -28,10 +28,7 @@ steps:
       -u "$(userId)" -p "$(password)" ^
       -cfgdir "$(configPath)" ^
       -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
-      -e "$(envId)" ^
-      -ccreport summary^
-      -genhtml coverage.info --output-directory coverage-report
-
+      -e "$(envId)"
 - task: CmdLine@2
   displayName: 'Show CLI Log'
   inputs:
