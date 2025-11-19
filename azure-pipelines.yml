@@ -33,7 +33,7 @@ steps:
       -port "16196" ^
       -targetFolder "$(targetFolder)" ^
       -data "$(ispwData)" ^
-      -scm 'ispw' ^
+      -scm "ispw" ^
       -ispwServerStream "CPWR" ^
       -ispwContainerName "KTTA000594" ^
       -ispwServerApp "KTTA" ^
