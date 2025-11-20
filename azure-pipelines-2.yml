@@ -17,3 +17,27 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: CmdLine@2
+  displayName: 'Download ISPW'
+  inputs:
+    script: |
+      "$(cliPath)\SCMDownloaderCLI.bat" ^
+      -configuration "$(configPath)" ^
+      -id "pinaka1" ^
+      -pass "Freep0rt@bmc10" ^
+      -code "1047" ^
+      -timeout "0" ^
+      -host "CW01.BMC.COM" ^
+      -port "16196" ^
+      -targetFolder "$(targetFolder)" ^
+      -data "$(ispwData)" ^
+      -scm "ispw" ^
+      -ispwServerStream "CPWR" ^
+      -ispwContainerName "KTTA000594" ^
+      -ispwServerApp "KTTA" ^
+      -ispwServerLevel "DEV1" ^ 
+      -ispwLevelOption '0' ^
+      -ispwFilterFiles "true" ^
+      -ispwFilterFolders "false" ^ 
+      -ispwComponentType "COB" ^
+      -ispwDownloadAll true
