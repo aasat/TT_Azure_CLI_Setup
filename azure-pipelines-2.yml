@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: Github Enterprise Server
+  name: Github Enterprise Server
 
 steps:
 - script: echo Hello, world!
