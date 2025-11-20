@@ -19,27 +19,43 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 - task: CmdLine@2
-  displayName: 'Download ISPW'
+  displayName: 'Run TotalTest CLI'
   inputs:
     script: |
-      "$(cliPath)\SCMDownloaderCLI.bat" ^
-      -configuration "$(configPath)" ^
-      -id "pinaka1" ^
-      -pass "Freep0rt@bmc10" ^
-      -code "1047" ^
-      -timeout "0" ^
-      -host "CW01.BMC.COM" ^
-      -port "16196" ^
-      -targetFolder "$(targetFolder)" ^
-      -data "$(ispwData)" ^
-      -scm "ispw" ^
-      -ispwServerStream "CPWR" ^
-      -ispwContainerName "KTTA000594" ^
-      -ispwServerApp "KTTA" ^
-      -ispwServerLevel "DEV1" ^ 
-      -ispwLevelOption '0' ^
-      -ispwFilterFiles "true" ^
-      -ispwFilterFolders "false" ^ 
-      -ispwComponentType "COB" ^
-      -ispwDownloadAll true
+      "$(cliPath)\TotalTestFTCLI.bat" ^
+      -f "$(testScenarioPath)" ^
+      -R -g TTTReport -G -v 6 -l CLI -log "All" ^
+      -u "$(userId)" -p "$(password)" ^
+      -cfgdir "$(configPath)" ^
+      -ccrepo "$(ccRepo)" -ccsystem "$(ccSystem)" -cctestid "$(ccTestId)" ^
+      -e "$(envId)"
+- task: CmdLine@2
+  displayName: 'Show CLI Log'
+  inputs:
+    script: |
+      echo "After CLI execution"
+      CD "C:\runtime\TotalTest-2503\CWK8000_CW01\Tests\Output"
+      
+      IF EXIST "CWK8000_Scenario.cli.suiteresult" (
+        type "CWK8000_Scenario.cli.suiteresult"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suiteresult not found.
+      )
 
+      IF EXIST "CWK8000_Scenario.cli.suite.sonar.xml" (
+        type "CWK8000_Scenario.cli.suite.sonar.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.sonar.xml not found.
+      )
+
+      IF EXIST "CWK8000_Scenario.cli.suite.junit.xml" (
+        type "CWK8000_Scenario.cli.suite.junit.xml"
+      ) ELSE (
+        echo File CWK8000_Scenario.cli.suite.junit.xml not found.
+      )
+
+      IF EXIST "CWK8000_Scenario.cli.sonar.codecoverage.xml" (
+        type "CWK8000_Scenario.cli.sonar.codecoverage.xml"
+      ) ELSE (
+        echo CWK8000_Scenario.cli.sonar.codecoverage.xml not found.
+      )
