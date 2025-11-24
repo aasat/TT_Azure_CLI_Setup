@@ -40,3 +40,14 @@ steps:
   inputs:
     script: |
       $(CLI_PATH)/CodeCoverageCLI.bat -host $(host) -port $(port) -id $(user) -pass $(pass) -code '1047' -timeout "0" -targetFolder $(targetFolder) -data $(data) --cc.repos $(ccrepo) --cc.test $(testid) --cc.system $(sys) --cc.sources $(targetFolder)\KTTA\MF_Source
+
+- task: CmdLine@2
+  displayName: "After Code Coverage Download"   
+  inputs:
+    script: |
+      cat $(data)/.metadata/.log
+      ls -lartiR C:\agent\_work\1\s\source
+      cd C:\agent\_work\1\s\source\Coverage
+      cat CodeCoverage.xml
+      echo "Code coverage download completed successfully."
+
