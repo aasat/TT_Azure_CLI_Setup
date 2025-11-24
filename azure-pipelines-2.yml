@@ -7,7 +7,7 @@ trigger:
 - main
 
 variables:
-  - group: vargroup2
+  - group: variable-win
 # Configure the workspace cleanup options here
 #workspace:
 #  clean: all
