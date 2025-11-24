@@ -28,3 +28,9 @@ steps:
   inputs:
     script: |
       $(CLI_PATH)/SCMDownloaderCLI.bat -host $(host) -port 16196 -id $(user) -pass $(pass) -code 1047 -timeout "0" -targetFolder $(targetFolder) -data $(data) -scm $(scm) -ispwContainerName $(ispwContainerName) -ispwContainerType $(ispwContainerType) -ispwDownloadAll true
+
+- task: CmdLine@2
+  displayName: "Execute Total Test Scenarios"
+  inputs:
+    script: |
+      $(CLI_PATH)/TotalTestFTCLI.bat -host $(host) -port $(port) -data $(data) -S $(cobSource) -f $(file) -u $(user) -p $(pass) -cp 1047 -cfgdir $(cfgdir) -loglevel $(loglevel) -R -G -v 6 -ccclear true -ccrepo $(ccrepo) -ccsys $(sys) -cctid $(testid)
