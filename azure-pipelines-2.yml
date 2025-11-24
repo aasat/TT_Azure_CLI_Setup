@@ -33,4 +33,4 @@ steps:
   displayName: "Execute Total Test Scenarios"
   inputs:
     script: |
-      $(CLI_PATH)/TotalTestFTCLI.bat -e -data $(data) -S $(cobSource) -f $(file) -u $(user) -p $(pass) -cp 1047 -cfgdir $(cfgdir) -loglevel ALL -R -G -v 6 -ccclear true -ccrepo $(ccrepo) -ccsys $(sys) -cctid $(testid)
+      $(CLI_PATH)/TotalTestFTCLI.bat -e d59115f4-0250-48f4-9c15-450bc236d456 -data $(data) -S $(cobSource) -f $(file) -u $(user) -p $(pass) -cp 1047 -cfgdir $(cfgdir) -loglevel ALL -R -G -v 6 -ccclear true -ccrepo $(ccrepo) -ccsys $(sys) -cctid $(testid)
