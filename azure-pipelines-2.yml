@@ -50,10 +50,10 @@ steps:
       type "%data%\.metadata\.log"
 
       REM List all files recursively with details
-      dir /s /a /t /q "C:\Documents\myagent\_work\1\s\source"
+      dir /s /a /t /q "C:\agent\_work\1\s\source"
 
       REM Navigate to Coverage folder
-      cd "C:\Documents\myagent\_work\1\s\source\Coverage"
+      cd "C:\agent\_work\1\s\source\Coverage"
 
       REM Show CodeCoverage.xml content
       type "CodeCoverage.xml"
